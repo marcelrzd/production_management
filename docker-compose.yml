@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  backend:
+    image: backend
+    container_name: django_container
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: frontend
+    container_name: nextjs_container
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_BACKEND_URL=http://backend:8000
